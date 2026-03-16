@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22cb1b8ec673ff444b73e4f096f3588e, type: 3}
+  m_Name: Health - 11
+  m_EditorClassIdentifier: 
+  id: 11
+  skillName: Vitality
+  description: Increases your maximum vitality. Allows you to survive longer in battle.
+  icon: {fileID: -1132471967, guid: 9e044c2a9d6d14649902149a6f7544ea, type: 3}
+  type: 1
+  valuePerLevel: 5
+  currentLevel: 0
+  levels:
+  - cost:
+    - item: {fileID: 11400000, guid: ba8c7c03bcf68c4488ce7e4932b6c44b, type: 2}
+      amount: 3
+    - item: {fileID: 11400000, guid: b50f4aa7fdbabf343b0fd1eaa39edd73, type: 2}
+      amount: 3
+  - cost:
+    - item: {fileID: 11400000, guid: ba8c7c03bcf68c4488ce7e4932b6c44b, type: 2}
+      amount: 4
+    - item: {fileID: 11400000, guid: b50f4aa7fdbabf343b0fd1eaa39edd73, type: 2}
+      amount: 4
+  - cost:
+    - item: {fileID: 11400000, guid: ba8c7c03bcf68c4488ce7e4932b6c44b, type: 2}
+      amount: 5
+    - item: {fileID: 11400000, guid: b50f4aa7fdbabf343b0fd1eaa39edd73, type: 2}
+      amount: 5

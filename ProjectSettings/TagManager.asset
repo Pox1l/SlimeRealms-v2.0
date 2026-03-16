@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Monster
+  - HealthSlider
+  - HealthText
+  - EnergySlider
+  - EnergyText
+  - ProfileBTN
+  - InventoryBTN
+  - SkillTreeBTN
+  - CloseBTN
+  - ProfilePanel
+  - InventoryPanel
+  - SkillTreePanel
+  - CentralMenuCanvas
+  - CentralMenuRoot
+  - HUD
+  - InventorySlotsParent
+  - InvDescIcon
+  - InvDescName
+  - InvDescText
+  - itemSaveSys
+  - InventoryContextMenu
+  - menuPanel
+  - UseBTN
+  - TrashBTN
+  - ContextMenuUI
+  - SpawnPoint
+  - SettingsCanvas
+  - PhaseText
+  - CraftingPanel
+  - CraftingBTN
+  - LoadingCanvas
+  - PauseMenuCanvas
+  - PauseMenuRoot
+  - SettingsBTN
+  - ResetBTN
+  - QuitBTN
+  - ResumeBTN
+  - CloseSettingsBTN
+  - SettingsMenuRoot
+  - DeadUICanvas
+  - DeadUIRoot
+  - RespawnBTN
+  - KrystalCanvas
+  - KrystalRoot
+  - BossUICanvas
+  - WorldUI
+  - TutorialCanvas
+  - TutorialRoot
+  - BossEncounter
+  - BossEntrance
+  - PhaseBG
+  - TutorialPanel
+  - debugText
+  - rightClickIC
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Player
+  - Water
+  - UI
+  - Enemy
+  - Items
+  - Attack
+  - StaticObjects
+  - EnemyProjectile
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: WorldUI
+    uniqueID: 491838951
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0

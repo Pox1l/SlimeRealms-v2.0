@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d05139725836e14489e74f3cd93929a, type: 3}
+  m_Name: HealPotion iV
+  m_EditorClassIdentifier: 
+  recipeName: HealPotion IV
+  resultItem: {fileID: 11400000, guid: 1c3a3b4cfe36e86438941e961751202f, type: 2}
+  resultAmount: 1
+  icon: {fileID: -1428410860, guid: 6c769403a5da67642abf3b94d37a7c55, type: 3}
+  ingredients:
+  - item: {fileID: 11400000, guid: 87ec953c27aa7de48a7033f0fa5d175d, type: 2}
+    amount: 2
+  - item: {fileID: 11400000, guid: b50f4aa7fdbabf343b0fd1eaa39edd73, type: 2}
+    amount: 2
