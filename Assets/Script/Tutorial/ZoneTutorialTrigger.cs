@@ -9,6 +9,7 @@ public class ZoneTutorialTrigger : MonoBehaviour
 
     [Header("Interakce")]
     public bool requireKeyPress = false;
+    public bool allowAnywhereKeyPress = false; // Nový bool pro interakci odkudkoliv
     public KeyCode interactKey = KeyCode.E;
 
     [Header("UI Nápovìda")]
@@ -19,7 +20,8 @@ public class ZoneTutorialTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (playerInZone && requireKeyPress)
+        // Upravená podmínka: Hráè musí být v zónì, NEBO je povoleno stisknutí odkudkoliv
+        if (requireKeyPress && (playerInZone || allowAnywhereKeyPress))
         {
             if (Input.GetKeyDown(interactKey))
             {

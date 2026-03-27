@@ -777,7 +777,7 @@ MonoBehaviour:
           iconNameOrGuid: Canvas Icon
           isIconRecursive: 0
           isColorRecursive: 0
-        - colorIndex: 0
+        - colorIndex: 4
           iconNameOrGuid: Folder
           isIconRecursive: 0
           isColorRecursive: 0
