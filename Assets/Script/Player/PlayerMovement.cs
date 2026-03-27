@@ -96,9 +96,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (lookAheadTarget == null) return;
 
+        // POKUD JE VYPNUTO: Cíl se okamžitě zamkne na pozici hráče (žádné zpoždění, žádné houpání)
+        if (!isDynamicCamera)
+        {
+            lookAheadTarget.position = transform.position;
+            return;
+        }
+
+        // POKUD JE ZAPNUTO: Klasické posouvání dopředu
         Vector3 targetPosition = transform.position;
 
-        if (isDynamicCamera && movement.magnitude > 0.1f)
+        if (movement.magnitude > 0.1f)
         {
             targetPosition += (Vector3)(movement * lookDistance);
         }
