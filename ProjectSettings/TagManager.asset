@@ -59,6 +59,8 @@ TagManager:
   - TutorialPanel
   - debugText
   - rightClickIC
+  - targetCamera
+  - LookAheadTarget
   layers:
   - Default
   - TransparentFX

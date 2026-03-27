@@ -183,6 +183,9 @@ MonoBehaviour:
       Data3: -1425434960
       Data4: 393278912
     Path: event:/playerDash
+  lookAheadTarget: {fileID: 0}
+  lookDistance: 4
+  lookSmoothSpeed: 4
   dashFeedback: {fileID: 2613256912368071455}
   animator: {fileID: 6639401451793332536}
 --- !u!114 &113634020460050641

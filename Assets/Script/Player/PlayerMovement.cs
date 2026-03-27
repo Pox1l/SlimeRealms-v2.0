@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using MoreMountains.Feedbacks;
-using FMODUnity; // 🔥 PŘIDÁNO: Knihovna pro FMOD
+using FMODUnity;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,9 +14,15 @@ public class PlayerMovement : MonoBehaviour
     public float dashEnergyCost = 25f;
     public ParticleSystem startDashParticle;
 
-    [Header("Audio (FMOD)")] // 🔥 PŘIDÁNO: Sekce pro zvuky
+    [Header("Audio (FMOD)")]
     [Tooltip("Zvuk, který se přehraje při startu dashe (např. Whoosh)")]
     public EventReference dashSound;
+
+    [Header("Camera LookAhead")] // 🔥 PŘIDÁNO: Posun kamery podle pohybu
+    public Transform lookAheadTarget;
+    public float lookDistance = 4f;
+    public float lookSmoothSpeed = 5f;
+    private bool isDynamicCamera;
 
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -31,6 +37,25 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
+    }
+
+    void Start() // 🔥 UPRAVENO: Načtení nastavení a automatické hledání targetu
+    {
+        isDynamicCamera = PlayerPrefs.GetInt("DynamicCamera", 1) == 1;
+
+        // Pokud není target přiřazen ručně v Inspektoru, zkusíme ho najít podle tagu
+        if (lookAheadTarget == null)
+        {
+            GameObject foundTarget = GameObject.FindGameObjectWithTag("LookAheadTarget");
+            if (foundTarget != null)
+            {
+                lookAheadTarget = foundTarget.transform;
+            }
+            else
+            {
+                Debug.LogWarning("PlayerMovement: Objekt s tagem 'LookAheadTarget' nebyl nalezen ve scéně. Kamera se nebude posouvat dopředu.");
+            }
+        }
     }
 
     void Update()
@@ -54,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         UpdateAnimations();
+        UpdateLookAheadTarget(); // 🔥 PŘIDÁNO: Aktualizace pozice cíle
     }
 
     void FixedUpdate()
@@ -63,6 +89,30 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = movement * moveSpeed;
         }
+    }
+
+    // 🔥 PŘIDÁNO: Logika pro posun cíle kamery
+    private void UpdateLookAheadTarget()
+    {
+        if (lookAheadTarget == null) return;
+
+        Vector3 targetPosition = transform.position;
+
+        if (isDynamicCamera && movement.magnitude > 0.1f)
+        {
+            targetPosition += (Vector3)(movement * lookDistance);
+        }
+
+        // Plynulý dojezd cíle na vypočítanou pozici
+        lookAheadTarget.position = Vector3.Lerp(lookAheadTarget.position, targetPosition, lookSmoothSpeed * Time.deltaTime);
+    }
+
+    // 🔥 PŘIDÁNO: Funkce pro UI Toggle v nastavení
+    public void SetDynamicCamera(bool isOn)
+    {
+        isDynamicCamera = isOn;
+        PlayerPrefs.SetInt("DynamicCamera", isOn ? 1 : 0);
+        PlayerPrefs.Save();
     }
 
     IEnumerator Dash()
